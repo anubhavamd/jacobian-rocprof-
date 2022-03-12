@@ -1,0 +1,21 @@
+#include "/opt/rocm-4.2.0/rocprofiler/lib/metrics.xml"
+<global>
+    # Total # VALU + SALU Instructions
+    <metric
+    name="TotalALUInsts"
+    descr="Total number of ALU instructions"
+    expr=((VALUInsts+SALUInsts)*SQ_WAVES)
+    ></metric>
+    # Total # VMEM + SMEM Instructions
+    <metric
+    name="TotalMemInsts"
+    descr="Total number of VMEM and SMEM read and write instructions"
+    expr=((VFetchInsts+SFetchInsts+VWriteInsts+FlatVMemInsts)*SQ_WAVES)
+    ></metric>
+    # Total # LDS Instructions
+    <metric
+    name="TotalLDSInsts"
+    descr="Total number of LDS instructions"
+    expr=((LDSInsts+FlatLDSInsts)*SQ_WAVES)
+    ></metric>
+</global>
